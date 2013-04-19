@@ -1,0 +1,6 @@
+1. replace #include<sys/xxx>, <unistd.h> and <pthread.h> with #include "port.h"
+2. replace inline with myinline
+3. put #include "port.h" before any file with myinline and __func__
+4. replace ftell and fseek with portable_ftell and portable_fseek
+5. add #define _USE_MATH_DEFINES to files with M_SQRT1_2
+
