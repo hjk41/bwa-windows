@@ -4,30 +4,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "zlib", "zlib\zlib.vcxproj", "{3D980D97-FDD1-47FC-BA15-750F5881FCE1}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BWA", "BWA\BWA.vcxproj", "{07A8D486-9DD1-4D7C-B0BB-971136223583}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3D980D97-FDD1-47FC-BA15-750F5881FCE1} = {3D980D97-FDD1-47FC-BA15-750F5881FCE1}
+		{B6B473AA-6096-45AE-9FF4-3672AFDEC5F8} = {B6B473AA-6096-45AE-9FF4-3672AFDEC5F8}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BWALite", "BWALite\BWALite.vcxproj", "{D24AFF06-CD8E-454A-AA27-1A6E160A45AC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3D980D97-FDD1-47FC-BA15-750F5881FCE1} = {3D980D97-FDD1-47FC-BA15-750F5881FCE1}
+		{B6B473AA-6096-45AE-9FF4-3672AFDEC5F8} = {B6B473AA-6096-45AE-9FF4-3672AFDEC5F8}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libBWA", "libBWA\libBWA.vcxproj", "{B6B473AA-6096-45AE-9FF4-3672AFDEC5F8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3D980D97-FDD1-47FC-BA15-750F5881FCE1} = {3D980D97-FDD1-47FC-BA15-750F5881FCE1}
+	EndProjectSection
 EndProject
 Global
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 5
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = http://vstfpg04:8080/tfs/pg04
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = zlib\\zlib.vcxproj
-		SccProjectName1 = zlib
-		SccLocalPath1 = zlib
-		SccProjectUniqueName2 = BWA\\BWA.vcxproj
-		SccProjectName2 = BWA
-		SccLocalPath2 = BWA
-		SccProjectUniqueName3 = BWALite\\BWALite.vcxproj
-		SccProjectName3 = BWALite
-		SccLocalPath3 = BWALite
-		SccProjectUniqueName4 = libBWA\\libBWA.vcxproj
-		SccProjectName4 = libBWA
-		SccLocalPath4 = libBWA
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Mixed Platforms = Debug|Mixed Platforms
 		Debug|Win32 = Debug|Win32
