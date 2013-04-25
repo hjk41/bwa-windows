@@ -636,8 +636,15 @@ void bwa_sai2sam_pe_core(const char *prefix, char *const fn_sa[2], char *const f
 	for (i = 1; i != 256; ++i) g_log_n[i] = (int)(4.343 * log(i) + 0.5);
 	bns = bns_restore(prefix);
 	srand48(bns->seed);
+#ifdef WIN32
+	// patch by chuntao
+	// "r" mode will cause the program to hit EOF unexpectly
+	fp_sa[0] = xopen(fn_sa[0], "rb");
+	fp_sa[1] = xopen(fn_sa[1], "rb");
+#else
 	fp_sa[0] = xopen(fn_sa[0], "r");
 	fp_sa[1] = xopen(fn_sa[1], "r");
+#endif
 	g_hash = kh_init(b128);
 	last_ii.avg = -1.0;
 

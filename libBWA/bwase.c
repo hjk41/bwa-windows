@@ -510,7 +510,13 @@ void bwa_sai2sam_se_core(const char *prefix, const char *fn_sa, const char *fn_f
 	bwase_initialize();
 	bns = bns_restore(prefix);
 	srand48(bns->seed);
+#ifdef WIN32
+	// patch by chuntao
+	// "r" mode will cause the program to hit EOF unexpectly
+	fp_sa = xopen(fn_sa, "rb");
+#else
 	fp_sa = xopen(fn_sa, "r");
+#endif
 
 	m_aln = 0;
 	fread(&opt, sizeof(gap_opt_t), 1, fp_sa);

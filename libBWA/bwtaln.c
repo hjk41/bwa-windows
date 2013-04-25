@@ -149,6 +149,11 @@ bwa_seqio_t *bwa_open_reads(int mode, const char *fn_fa)
 	return ks;
 }
 
+#ifdef WIN32
+#include <io.h>
+#include <fcntl.h>
+#endif
+
 void bwa_aln_core(const char *prefix, const char *fn_fa, const gap_opt_t *opt)
 {
 	int i, n_seqs, tot_seqs = 0;
@@ -165,6 +170,14 @@ void bwa_aln_core(const char *prefix, const char *fn_fa, const gap_opt_t *opt)
 		strcpy(str, prefix); strcat(str, ".bwt");  bwt = bwt_restore_bwt(str);
 		free(str);
 	}
+
+#ifdef WIN32
+	// patch for windows by chuntao
+	// by default, stdout is opened in text mode, when fwrite, two 0x0D will be 
+	// automatically placed in stdout, causing file corruption
+	// setting mode to binary will fix the problem
+	_setmode(_fileno(stdout), _O_BINARY);
+#endif
 
 	// core loop
 	err_fwrite(opt, sizeof(gap_opt_t), 1, stdout);
